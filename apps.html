@@ -21,24 +21,18 @@
         </script>
         <script src="lib/jquery.min.js"></script>
         <script src="script.js"></script>
-        <script src="index.js"></script>
+        <script src="apps.js"></script>
     </head>
     <body>
         <nav>
-            <a href="index.html"><img src="media/White.png" alt="IMC">&nbsp;<span>LiveCloud</span></a>
+            <a href="apps.html"><img src="media/White.png" alt="IMC">&nbsp;<span>LiveCloud</span></a>
+            <a href="javascript:firebase.auth().signOut();"><span>Sign Out</span></a>
         </nav>
         <main>
-            <div class="mainCard center">
-                <h2 class="mainCardHeader">Sign into LiveCloud</h2>
-                <p>LiveCloud is your one-stop shop for producing live productions. <a href="javascript:alert('Coming soon!');">Learn more</a></p>
-                <input placeholder="Email" class="spaced signIn" id="email">
-                <input type="password" placeholder="Password" class="spaced signIn" id="password">
-                <p id="signInError"></p>
-                <div class="right">
-                    <button class="flat">Sign Up</button>
-                    <button onclick="signIn();">Sign In</button>
-                </div>
-            </div>
+            <section>
+                <h1>Welcome!</h1>
+                <p>Coming soon!</p>
+            </section>
         </main>
         <div class="dialogBackground"></div>
         <div class="dialog"></div>

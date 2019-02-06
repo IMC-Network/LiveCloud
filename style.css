@@ -202,6 +202,7 @@ nav > a > img {
     max-height: calc(100vh - 230px);
     padding: 15px;
     clip-path: var(--clipPath);
+    overflow-y: auto;
     background-color: rgba(255, 255, 255, 0.8);
     color: black;
 }
