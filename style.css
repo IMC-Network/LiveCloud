@@ -206,6 +206,10 @@ nav > a > img {
     color: black;
 }
 
+.mainCardHeader {
+    margin: 0;
+}
+
 @media (max-width: 550px) {
     .mainCard {
         left: 50px;
