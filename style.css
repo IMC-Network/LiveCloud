@@ -212,10 +212,23 @@ nav > a > img {
     margin: 0;
 }
 
+.appTile {
+    display: inline-block;
+    width: calc(25vw - 15px);
+    height: 12.5vw;
+    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 @media (max-width: 550px) {
     .mainCard {
         left: 50px;
         width: calc(100% - 130px);
+    }
+
+    .appTile {
+        width: calc(50vw - 20px);
+        height: 25vw;
     }
 }
 
