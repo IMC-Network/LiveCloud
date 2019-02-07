@@ -51,7 +51,8 @@ button:hover {
 }
 
 button:disabled {
-    background-color: var(--coverTextColour);
+    background-color: var(--uiInputColour);
+    color: black;
     cursor: default;
 }
 
