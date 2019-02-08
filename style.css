@@ -166,8 +166,8 @@ nav > a > img {
     z-index: 3;
     padding: 10px;
     clip-path: var(--clipPath);
-    background-color: var(--backgroundColour);
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .dialogTitle {
