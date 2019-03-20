@@ -20,6 +20,8 @@
         firebase.initializeApp(config);
         </script>
         <script src="lib/jquery.min.js"></script>
+        <script src="lib/lang.js"></script>
+        <script src="lang/overrides.js"></script>
         <script src="script.js"></script>
         <script src="apps.js"></script>
     </head>
@@ -29,7 +31,11 @@
             <a href="javascript:firebase.auth().signOut();"><span>Sign Out</span></a>
         </nav>
         <main>
-            <section class="appsList"></section>
+            <section class="appsList">
+                <div class="appsListLoader">
+                    <img src="media/Loader.png" class="loader" />
+                </div>
+            </section>
         </main>
         <div class="dialogBackground"></div>
         <div class="dialog"></div>

@@ -145,6 +145,14 @@ nav > a > img {
     text-align: right;
 }
 
+*[dir="rtl"] .left {
+    text-align: right;
+}
+
+*[dir="rtl"] .right {
+    text-align: left;
+}
+
 .dialogBackground {
     display: none;
     position: fixed;
@@ -211,6 +219,16 @@ nav > a > img {
 
 .mainCardHeader {
     margin: 0;
+}
+
+.appsListLoader {
+    padding-top: calc(50vh - 150px);
+    padding-bottom: calc(50vh - 150px);
+    text-align: center;
+}
+
+.loader {
+    width: 100px;
 }
 
 .appTile {

@@ -2,8 +2,24 @@ var currentUser = {
     uid: null
 };
 
-function addApp() {
-    $("<div class='appTile'>").appendTo($(".appsList"));
+function addApp(app) {
+    $("<div class='appTile'>")
+        .css({
+            "background-image": app.thumbnail == null ? "url('media/Blank%20App.png')" : "url('" + encodeURI(app.thumbnail) + "')",
+            "background-repeat": "no-repeat",
+            "background-position": "center center",
+            "background-size": "cover"
+        })
+        .appendTo(
+            $("<a>")
+                .attr({
+                    "title": app.name,
+                    "href": app.location,
+                    "target": "_blank"
+                })
+                .appendTo($(".appsList"))
+        )
+    ;
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -33,18 +49,25 @@ firebase.auth().onAuthStateChanged(function(user) {
                 firebase.database().ref("users/" + currentUser.uid + "/versionID").set(LiveCloud.versionID);
             });
         });
+
+        firebase.database().ref("users/" + currentUser.uid + "/apps").on("value", function(snapshot) {
+            $(".appsList").html("");
+    
+            if (snapshot.val() == null || snapshot.val().length == 0) {
+                firebase.database().ref("users/" + currentUser.uid + "/apps").set([
+                    "-LY80gNP7gjB8hQrhNJZ"  // LiveCloud
+                ]);
+            } else {
+                for (var i = 0; i < snapshot.val().length; i++) {
+                    firebase.database().ref("apps/" + snapshot.val()[i]).once("value", function(appSnapshot) {
+                        if (appSnapshot.val() != null) {
+                            addApp(appSnapshot.val());
+                        }
+                    });
+                }
+            }
+        });
     } else {
         window.location.href = "index.html";
     }
-});
-
-$(function() {
-    addApp();
-    addApp();
-    addApp();
-    addApp();
-    addApp();
-    addApp();
-    addApp();
-    addApp();
 });

@@ -8,6 +8,8 @@ var LiveCloud = {
     `
 };
 
+var loaderRotationAngle = 0;
+
 function dialog(title, content, buttons = [{text: "Close", onclick: "closeDialog();", type: "primary"}], allowEscape = true) {
     $(".dialog").html(`
         <div class="dialogTitle"></div>
@@ -61,3 +63,15 @@ function closeDialog() {
     $(".dialogBackground").fadeOut();
     $(".dialog").fadeOut();
 }
+
+$(function() {
+    setInterval(function() {
+        loaderRotationAngle += 90;
+
+        $(".loader").css("transform", "rotate(" + loaderRotationAngle + "deg)");
+
+        if (loaderRotationAngle >= 360) {
+            loaderRotationAngle = 0;
+        }
+    }, 150);
+});
