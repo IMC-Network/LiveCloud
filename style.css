@@ -28,6 +28,10 @@ html, body {
     color: white;
 }
 
+body * {
+    background: transparent;
+}
+
 a {
     text-decoration: none;
     color: var(--uiColour);
