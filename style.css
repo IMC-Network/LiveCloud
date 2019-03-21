@@ -15,13 +15,16 @@
     font-family: "Roboto", sans-serif;
 }
 
+html {
+    background: var(--backgroundColour);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 html, body {
     min-height: calc(100% - 50px);
     margin: 0;
     margin-top: 50px;
-    background: var(--backgroundColour);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     color: white;
 }
 
