@@ -1,5 +1,8 @@
 var currentUser = {
-    uid: null
+    uid: null,
+    orgName: null,
+    org: null,
+    orgMember: null
 };
 
 function addApp(app) {
@@ -11,9 +14,9 @@ function addApp(app) {
             "background-size": "cover"
         })
         .appendTo(
-            $("<a class='appTileDraggable'>")
+            $("<a class='appTileLink'>")
                 .attr({
-                    "title": app.name + Math.random(),
+                    "title": app.name,
                     "href": app.location,
                     "target": "_blank"
                 })
@@ -50,22 +53,41 @@ firebase.auth().onAuthStateChanged(function(user) {
             });
         });
 
-        firebase.database().ref("users/" + currentUser.uid + "/apps").on("value", function(snapshot) {
-            $(".appsList").html("");
-    
-            if (snapshot.val() == null || snapshot.val().length == 0) {
-                firebase.database().ref("users/" + currentUser.uid + "/apps").set([
-                    "-LY80gNP7gjB8hQrhNJZ"  // LiveCloud
-                ]);
-            } else {
-                for (var i = 0; i < snapshot.val().length; i++) {
-                    firebase.database().ref("apps/" + snapshot.val()[i]).once("value", function(appSnapshot) {
-                        if (appSnapshot.val() != null) {
-                            addApp(appSnapshot.val());
+        firebase.database().ref("users/" + currentUser.uid + "/org").once("value", function(orgNameSnapshot) {
+            currentUser.orgName = orgNameSnapshot.val();
+
+            firebase.database().ref("orgs/" + currentUser.orgName).once("value", function(orgSnapshot) {
+                currentUser.org = orgSnapshot.val();
+                currentUser.orgMember = orgSnapshot.val().members[currentUser.uid];
+
+                firebase.database().ref("users/" + currentUser.uid + "/apps").on("value", function(snapshot) {
+                    $(".appsList").html("");
+            
+                    if (snapshot.val() == null || snapshot.val().length == 0) {
+                        firebase.database().ref("users/" + currentUser.uid + "/apps").set([
+                            "-LY80gNP7gjB8hQrhNJZ"  // LiveCloud
+                        ]);
+                    } else {
+                        for (var i = 0; i < snapshot.val().length; i++) {
+                            if (typeof(snapshot.val()[i]) == "string") {
+                                firebase.database().ref("apps/" + snapshot.val()[i]).once("value", function(appSnapshot) {
+                                    if (appSnapshot.val() != null) {
+                                        addApp(appSnapshot.val());
+                                    }
+                                });
+                            } else if (typeof(snapshot.val()[i]) == "object") {
+                                addApp(snapshot.val()[i]);
+                            }
                         }
-                    });
-                }
-            }
+                    }
+        
+                    if (currentUser.orgMember.admin == true && snapshot.val().indexOf("-LaViIBy7-ohPq2iF4vA") == -1) {
+                        setTimeout(function() {
+                            firebase.database().ref("users/" + currentUser.uid + "/apps/" + snapshot.val().length).set("-LaViIBy7-ohPq2iF4vA");
+                        }, 1000);
+                    }
+                });
+            });
         });
     } else {
         window.location.href = "index.html";
