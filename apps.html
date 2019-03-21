@@ -3,6 +3,7 @@
     <head>
         <title>IMC LiveCloud</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <link rel="stylesheet" href="lib/jquery-ui.min.css">
         <link rel="stylesheet" href="font/import.css">
         <link rel="stylesheet" href="style.css">
         <link rel="shortcut icon" href="media/Account.png">
@@ -20,6 +21,8 @@
         firebase.initializeApp(config);
         </script>
         <script src="lib/jquery.min.js"></script>
+        <script src="lib/jquery-ui.min.js"></script>
+        <script src="lib/touchpunch.min.js"></script>
         <script src="lib/lang.js"></script>
         <script src="lang/overrides.js"></script>
         <script src="script.js"></script>
@@ -33,7 +36,7 @@
         <main>
             <section class="appsList">
                 <div class="appsListLoader">
-                    <img src="media/Loader.png" class="loader" />
+                    <img src="media/Loader.png" alt="Loading..." class="loader" />
                 </div>
             </section>
         </main>

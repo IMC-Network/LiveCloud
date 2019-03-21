@@ -11,9 +11,9 @@ function addApp(app) {
             "background-size": "cover"
         })
         .appendTo(
-            $("<a>")
+            $("<a class='appTileDraggable'>")
                 .attr({
-                    "title": app.name,
+                    "title": app.name + Math.random(),
                     "href": app.location,
                     "target": "_blank"
                 })
