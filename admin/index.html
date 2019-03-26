@@ -1,1 +1,49 @@
-<script>alert("Coming soon!");</script>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IMC LiveCloud</title>
+        <link rel="stylesheet" href="https://imcnetwork.cf/lib/tools/jquery-ui.min.css">
+        <link rel="stylesheet" href="https://imcnetwork.cf/lib/IMCUI/style.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="../media/Account.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCrsNX8TZISaUDMqtJ4eP9b3fHkA79FhAo",
+            authDomain: "imc-livecloud.firebaseapp.com",
+            databaseURL: "https://imc-livecloud.firebaseio.com",
+            projectId: "imc-livecloud",
+            storageBucket: "imc-livecloud.appspot.com",
+            messagingSenderId: "622624800406"
+        };
+        firebase.initializeApp(config);
+        </script>
+        <script src="https://imcnetwork.cf/lib/tools/jquery.min.js"></script>
+        <script src="https://imcnetwork.cf/lib/tools/jquery-ui.min.js"></script>
+        <script src="https://imcnetwork.cf/lib/tools/touchpunch.min.js"></script>
+        <script src="https://imcnetwork.cf/lib/IMCUI/script.js"></script>
+        <script src="https://imcnetwork.cf/lib/tools/lang.js"></script>
+        <script src="../lang/overrides.js"></script>
+        <script src="adminList.js"></script>
+    </head>
+    <body>
+        <nav>
+            <a href="index.html"><img src="../media/White.png" alt="IMC">&nbsp;<span>LiveCloud Admin Tools</span></a>
+            <a href="../apps.html"><span>Exit</span></a>
+        </nav>
+        <main>
+            <section>
+                <h1>Admins</h1>
+                <div class="adminList">
+                    <div class="center">
+                        <img src="../media/Loader.png" alt="Loading..." class="loader" />
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class="dialogBackground"></div>
+        <div class="dialog"></div>
+    </body>
+</html>
