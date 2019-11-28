@@ -2,23 +2,26 @@
 <html>
     <head>
         <title>IMC LiveCloud</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <link rel="shortcut icon" href="../media/Account.png">
         <link rel="stylesheet" href="https://imcnetwork.cf/lib/tools/jquery-ui.min.css">
         <link rel="stylesheet" href="https://imcnetwork.cf/lib/IMCUI/style.css">
         <link rel="stylesheet" href="style.css">
-        <link rel="shortcut icon" href="../media/Account.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
         <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyCrsNX8TZISaUDMqtJ4eP9b3fHkA79FhAo",
-            authDomain: "imc-livecloud.firebaseapp.com",
-            databaseURL: "https://imc-livecloud.firebaseio.com",
-            projectId: "imc-livecloud",
-            storageBucket: "imc-livecloud.appspot.com",
-            messagingSenderId: "622624800406"
-        };
-        firebase.initializeApp(config);
+            var firebaseConfig = {
+                apiKey: "AIzaSyCrsNX8TZISaUDMqtJ4eP9b3fHkA79FhAo",
+                authDomain: "imc-livecloud.firebaseapp.com",
+                databaseURL: "https://imc-livecloud.firebaseio.com",
+                projectId: "imc-livecloud",
+                storageBucket: "imc-livecloud.appspot.com",
+                messagingSenderId: "622624800406",
+                appId: "1:622624800406:web:303bdfc9e0b04138088cb7"
+            };
+            
+            firebase.initializeApp(firebaseConfig);
         </script>
         <script src="https://imcnetwork.cf/lib/tools/jquery.min.js"></script>
         <script src="https://imcnetwork.cf/lib/tools/jquery-ui.min.js"></script>
