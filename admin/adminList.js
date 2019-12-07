@@ -38,10 +38,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
                 $(`
                     <tr>
-                        <td data-col="name" class="tableColumnName"></td>
+                        <td data-col="name"></td>
                         <td data-col="email"></td>
                         <td data-col="position"></td>
-                        <td data-col="options" class="tableColumnButtons">
+                        <td data-col="options">
                             <button>Edit</button>
                             <button>Delete</button>
                         </td>
