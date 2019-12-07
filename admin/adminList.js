@@ -34,6 +34,8 @@ firebase.auth().onAuthStateChanged(function(user) {
                     </div>
                 `).appendTo(".adminList");
 
+                // TODO: Add working admin listing
+
                 $(`
                     <tr>
                         <td data-col="name" class="tableColumnName"></td>
@@ -44,7 +46,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                             <button>Delete</button>
                         </td>
                     </tr>
-                `).appendTo(".tableHolder > table > tbody");
+                `).appendTo(".adminList .tableHolder > table > tbody");
             
                 $("[data-col='name']:last").text("James Livesey");
                 $("[data-col='email']:last").text("james@imcnetwork.cf");
