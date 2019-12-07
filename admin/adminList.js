@@ -41,7 +41,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                         <td data-col="name" class="tableColumnNoWrap"></td>
                         <td data-col="email"></td>
                         <td data-col="position"></td>
-                        <td data-col="options">
+                        <td data-col="options" class="tableColumnNoWrap">
                             <button>Edit</button>
                             <button>Delete</button>
                         </td>
