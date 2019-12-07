@@ -64,8 +64,10 @@ firebase.auth().onAuthStateChanged(function(user) {
                     $(".appsList").html("");
             
                     if (snapshot.val() == null || snapshot.val().length == 0) {
+                        // Add the following apps if there are none
+
                         firebase.database().ref("users/" + currentUser.uid + "/apps").set([
-                            "-LY80gNP7gjB8hQrhNJZ" // LiveCloud Admin Options
+                            "-LY80gNP7gjB8hQrhNJZ" // IMC LiveTools
                         ]);
                     } else {
                         for (var i = 0; i < snapshot.val().length; i++) {
@@ -83,7 +85,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         
                     if (currentUser.orgMember.admin == true && snapshot.val().indexOf("-LaViIBy7-ohPq2iF4vA") == -1) {
                         setTimeout(function() {
-                            firebase.database().ref("users/" + currentUser.uid + "/apps/" + snapshot.val().length).set("-LaViIBy7-ohPq2iF4vA");
+                            firebase.database().ref("users/" + currentUser.uid + "/apps/" + snapshot.val().length).set("-LaViIBy7-ohPq2iF4vA"); // If the user is an admin, give them the IMC LiveCloud Admin Options app
                         }, 1000);
                     }
                 });
