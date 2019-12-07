@@ -65,7 +65,7 @@ firebase.auth().onAuthStateChanged(function(user) {
             
                     if (snapshot.val() == null || snapshot.val().length == 0) {
                         firebase.database().ref("users/" + currentUser.uid + "/apps").set([
-                            "-LY80gNP7gjB8hQrhNJZ"  // LiveCloud
+                            "-LY80gNP7gjB8hQrhNJZ" // LiveCloud Admin Options
                         ]);
                     } else {
                         for (var i = 0; i < snapshot.val().length; i++) {
