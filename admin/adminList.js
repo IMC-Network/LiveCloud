@@ -46,11 +46,11 @@ firebase.auth().onAuthStateChanged(function(user) {
                             <button>Delete</button>
                         </td>
                     </tr>
-                `).appendTo(".adminList .tableHolder > table > tbody");
+                `).appendTo(".adminList table > tbody");
             
-                $(".adminList [data-col='name']:last").text("James Livesey");
-                $(".adminList [data-col='email']:last").text("james@imcnetwork.cf");
-                $(".adminList [data-col='position']:last").text("Owner");
+                $(".adminList table > tbody [data-col='name']:last").text("James Livesey");
+                $(".adminList table > tbody [data-col='email']:last").text("james@imcnetwork.cf");
+                $(".adminList table > tbody [data-col='position']:last").text("Owner");
             });
         });
     } else {
