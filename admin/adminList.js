@@ -21,12 +21,15 @@ firebase.auth().onAuthStateChanged(function(user) {
                 $(`
                     <div class="tableHolder">
                         <table>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Position</th>
-                                <th>Options</th>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Position</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
                         </table>
                     </div>
                 `).appendTo(".adminList");
@@ -41,7 +44,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                             <button>Delete</button>
                         </td>
                     </tr>
-                `).appendTo(".tableHolder > table");
+                `).appendTo(".tableHolder > table > tbody");
             
                 $("[data-col='name']:last").text("James Livesey");
                 $("[data-col='email']:last").text("james@imcnetwork.cf");
