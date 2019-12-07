@@ -48,9 +48,9 @@ firebase.auth().onAuthStateChanged(function(user) {
                     </tr>
                 `).appendTo(".adminList .tableHolder > table > tbody");
             
-                $("[data-col='name']:last").text("James Livesey");
-                $("[data-col='email']:last").text("james@imcnetwork.cf");
-                $("[data-col='position']:last").text("Owner");
+                $(".adminList [data-col='name']:last").text("James Livesey");
+                $(".adminList [data-col='email']:last").text("james@imcnetwork.cf");
+                $(".adminList [data-col='position']:last").text("Owner");
             });
         });
     } else {
