@@ -38,7 +38,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
                 $(`
                     <tr>
-                        <td data-col="name"></td>
+                        <td data-col="name" class="tableColumnNoWrap"></td>
                         <td data-col="email"></td>
                         <td data-col="position"></td>
                         <td data-col="options">
