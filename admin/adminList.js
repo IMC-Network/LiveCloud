@@ -26,7 +26,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Position</th>
-                                    <th>Options</th>
+                                    <th width="120">Options</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
