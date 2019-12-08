@@ -1,4 +1,4 @@
-function userReady() {
+events.userReady.push(function() {
     firebase.database().ref("orgs/" + currentUser.orgName + "/members").on("value", function(snapshot) {
         $(".adminList").html("");
 
@@ -38,4 +38,4 @@ function userReady() {
             }
         })
     });
-}
+});
