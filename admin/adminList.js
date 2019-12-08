@@ -1,41 +1,25 @@
-var currentUser = {
-    uid: null,
-    orgName: null,
-    org: null,
-    orgMember: null
-};
+function userReady() {
+    firebase.database().ref("orgs/" + currentUser.orgName + "/members").on("value", function(snapshot) {
+        $(".adminList").html("");
 
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        currentUser.uid = user.uid;
+        $(`
+            <div class="tableHolder">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th width="120">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        `).appendTo(".adminList");
 
-        firebase.database().ref("users/" + currentUser.uid + "/org").once("value", function(orgNameSnapshot) {
-            currentUser.orgName = orgNameSnapshot.val();
-
-            firebase.database().ref("orgs/" + currentUser.orgName).once("value", function(orgSnapshot) {
-                currentUser.org = orgSnapshot.val();
-                currentUser.orgMember = orgSnapshot.val().members[currentUser.uid];
-
-                $(".adminList").html("");
-
-                $(`
-                    <div class="tableHolder">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Position</th>
-                                    <th width="120">Options</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                `).appendTo(".adminList");
-
-                // TODO: Add working admin listing
-
+        snapshot.forEach(function(childSnapshot) {
+            if (childSnapshot.val().admin == true) {
                 $(`
                     <tr>
                         <td data-col="name" class="tableColumnNoWrap"></td>
@@ -47,13 +31,11 @@ firebase.auth().onAuthStateChanged(function(user) {
                         </td>
                     </tr>
                 `).appendTo(".adminList table > tbody");
-            
-                $(".adminList table > tbody [data-col='name']:last").text("James Livesey");
-                $(".adminList table > tbody [data-col='email']:last").text("james@imcnetwork.cf");
-                $(".adminList table > tbody [data-col='position']:last").text("Owner");
-            });
-        });
-    } else {
-        window.location.href = "index.html";
-    }
-});
+
+                $(".adminList table > tbody [data-col='name']:last").text(childSnapshot.val().name);
+                $(".adminList table > tbody [data-col='email']:last").text(childSnapshot.val().email);
+                $(".adminList table > tbody [data-col='position']:last").text(childSnapshot.val().position);
+            }
+        })
+    });
+}
