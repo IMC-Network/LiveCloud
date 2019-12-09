@@ -4,6 +4,10 @@
     --navForegroundColour: white;
 }
 
+main.appsListHolder {
+    min-height: calc(100vh - 125px);
+}
+
 section.appsList {
     margin: 10px;
     margin-top: 80px;
