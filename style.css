@@ -28,7 +28,7 @@ section.appsList {
 
 @media (max-width: 550px) {
     .appTile {
-        width: calc(50vw - 20px);
+        width: calc(50% - 10px);
         height: 25vw;
     }
 }
