@@ -20,7 +20,7 @@ section.appsList {
 
 .appTile {
     display: inline-block;
-    width: calc(25vw - 15px);
+    width: calc(25% - 10px);
     height: 12.5vw;
     margin: 5px;
     background-color: rgba(255, 255, 255, 0.2);
