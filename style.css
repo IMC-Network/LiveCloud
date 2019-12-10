@@ -1,6 +1,6 @@
 :root {
     --backgroundColour: linear-gradient(120deg, #0c0c0c 0%, #575757 100%);
-    --navBackgroundColour: transparent;
+    --navBackgroundColour: rgba(0, 0, 0, 0.2);
     --navForegroundColour: white;
 }
 
