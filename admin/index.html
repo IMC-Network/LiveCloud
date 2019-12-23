@@ -28,6 +28,7 @@
         <script src="https://imcnetwork.cf/lib/tools/touchpunch.min.js"></script>
         <script src="https://imcnetwork.cf/lib/IMCUI/script.js"></script>
         <script src="https://imcnetwork.cf/lib/tools/lang.js"></script>
+        <script src="https://imcnetwork.cf/lib/tools/imports.js"></script>
         <script src="https://imcnetwork.cf/lib/lcApps/script.js"></script>
         <script src="../lang/overrides.js"></script>
         <script src="adminList.js"></script>
@@ -36,6 +37,11 @@
         <nav>
             <a href="index.html"><img src="../media/White.png" alt="IMC">&nbsp;<span>LiveCloud Admin Options</span></a>
             <a href="index.html">Admin list</a>
+            <a href="javascript:toggleMenu('account');" aria-haspopup="true" aria-expanded="false" class="floatRight" data-menu-dropdown="account">
+                Account
+                <i aria-hidden="true" class="material-icons" data-menu-dropdown-icon="account">arrow_drop_down</i>
+            </a>
+            <div role="menu" class="menu farEnd" data-menu="account" import="https://imcnetwork.cf/templates/accountMenu.html"></div>
         </nav>
         <main>
             <section>

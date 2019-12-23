@@ -29,6 +29,7 @@
         <script src="https://imcnetwork.cf/lib/tools/touchpunch.min.js"></script>
         <script src="https://imcnetwork.cf/lib/IMCUI/script.js"></script>
         <script src="https://imcnetwork.cf/lib/tools/lang.js"></script>
+        <script src="https://imcnetwork.cf/lib/tools/imports.js"></script>
         <script src="lang/overrides.js"></script>
         <script src="script.js"></script>
         <script src="index.js"></script>
@@ -36,6 +37,11 @@
     <body>
         <nav>
             <a href="index.html"><img src="media/White.png" alt="IMC">&nbsp;<span>LiveCloud</span></a>
+            <a href="javascript:toggleMenu('account');" aria-haspopup="true" aria-expanded="false" class="floatRight" data-menu-dropdown="account">
+                Account
+                <i aria-hidden="true" class="material-icons" data-menu-dropdown-icon="account">arrow_drop_down</i>
+            </a>
+            <div role="menu" class="menu farEnd" data-menu="account" import="https://imcnetwork.cf/templates/accountMenu.html"></div>
         </nav>
         <main>
             <div class="mainCard center">
